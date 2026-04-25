@@ -1,0 +1,15 @@
+# Binaries
+/bin/
+/build/
+
+# Go workspace
+go.work
+
+# Dependency directories (if vendoring)
+vendor/
+
+# OS stuff
+.DS_Store
+
+# Env files
+.env
