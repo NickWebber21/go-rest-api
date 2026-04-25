@@ -34,3 +34,17 @@ func main() {
 func getAlbums(c *gin.Context) { // gin.Context very important part of Gin it carries requestt details, validates and serializes JSON, n more
 	c.IndentedJSON(http.StatusOK, albums)
 }
+
+// postAlbums adds an album from JSON received in the request body.
+func postAlbums(c *gin.Context) {
+	var newAlbum album
+
+	// call BindJSON to bind the recieved JSON to newAlbum
+	if err := c.BindJSON(&newAlbum); err != nil {
+		return
+	}
+
+	// Add the new album to the slice.
+	albums = append(albums, newAlbum)
+	c.IndentedJSON(http.StatusCreated, newAlbum)
+}
