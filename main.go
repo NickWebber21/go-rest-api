@@ -26,6 +26,7 @@ var albums = []album{
 func main() {
 	router := gin.Default()          // initialize Gin using Default
 	router.GET("/albums", getAlbums) // use GET function to associate the GET HTTP method and /albums path with handler function
+	router.POST("/albums", postAlbums)
 
 	router.Run("localhost:8080") // use the Run function to attach the route to an http.Server and start the server
 }
