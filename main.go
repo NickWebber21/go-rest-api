@@ -1,6 +1,10 @@
 package main
 
-import "net/http"
+import (
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+)
 
 // album struct declaration
 // store album data in memory
@@ -20,10 +24,10 @@ var albums = []album{
 
 // sets up association where getAlbums handles requests to the /albums endpoint path
 func main() {
-	router := gin.Default()
-	router.GET("/albums", getAlbums)
+	router := gin.Default()          // initialize Gin using Default
+	router.GET("/albums", getAlbums) // use GET function to associate the GET HTTP method and /albums path with handler function
 
-	router.Run("localhost:8080")
+	router.Run("localhost:8080") // use the Run function to attach the route to an http.Server and start the server
 }
 
 // getAlbums responds with the list of all albums as JSON.
